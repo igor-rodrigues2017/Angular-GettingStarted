@@ -15,7 +15,8 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table" *ngIf='products && products.length'>
+            <table class="table" *ngIf='products && products.length'><!--existe products && esse possui um tamanho 
+                                                                     -> adiciona ou não o elemento table-->
                 <thead> 
                     <tr>
                         <th>
@@ -31,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of products'> <!--Percorre o array products-->
                         <td></td>
                         <td>{{product.productName}}</td>
                         <td>{{product.productCode}}</td>
