@@ -41,7 +41,8 @@
                             <!-- ou assim: <img src={{product.imageUrl}} title={{product.productName}}> --> 
                         </td>
                         <td>{{ product.productName }}</td> <!--Interpolar Biding {{}}-->
-                        <td>{{ product.productCode | lowercase }}</td> <!-- | pipe para configurar formatação-->
+                        <td>{{ product.productCode | lowercase | convertToSpaces:'-'}}</td> <!-- | pipe para configurar formatação, 
+                                                                                            pode haver mais de uma formatação. convertToSpaces é nosso custom-->
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
                         <td>{{ product.starRating }}</td>
