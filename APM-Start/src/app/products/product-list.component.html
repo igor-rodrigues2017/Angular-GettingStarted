@@ -1,27 +1,28 @@
 <div class="card">
     <div class="card-header">
-        {{pageTitle}}
+        {{ pageTitle }}
     </div>
     <div class="card-body">
         <div class="row">
-            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-2">Filter by:</div> 
             <div class="col-md-4">
-                <input type="text">
+                <input type="text"
+                    [(ngModel)]="listFilter"> <!--  ngModel Binding bidirecional-->
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <h4>Filtered by: </h4>
+                <h4>Filtered by: {{ listFilter }}</h4> <!-- listFilter ngModel Binding bidirecional-->
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table" *ngIf='products && products.length'><!--existe products && esse possui um tamanho 
+            <table class="table" *ngIf="products && products.length"><!--existe products && esse possui um tamanho 
                                                                      -> adiciona ou não o elemento table-->
                 <thead> 
                     <tr>
                         <th>
-                            <button class="btn btn-primary" (click)='toggleImage()'>
-                                Show Image
+                            <button class="btn btn-primary" (click)="toggleImage()"> <!--Eventos entre parênteses, chamando a function do component-->
+                                {{ showImage ? 'Hide' : 'Show' }} Image
                             </button>
                         </th>
                         <th>Product</th>
@@ -32,18 +33,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'> <!--Percorre o array products-->
+                    <tr *ngFor="let product of products"> <!--Percorre o array products-->
                         <td>
-                            <img *ngIf='showImage'
-                            [src]='product.imageUrl' [title]='product.productName' 
-                            [style.width.px]='imageWidth' [style.margin.px]='imageMargin'> <!--Binding propertie []-->
+                            <img *ngIf="showImage"
+                            [src]="product.imageUrl" [title]="product.productName" 
+                            [style.width.px]="imageWidth" [style.margin.px]="imageMargin"> <!--Binding propertie []-->
                             <!-- ou assim: <img src={{product.imageUrl}} title={{product.productName}}> --> 
                         </td>
-                        <td>{{product.productName}}</td> <!--Interpolar Biding {{}}-->
-                        <td>{{product.productCode}}</td>
-                        <td>{{product.releaseDate}}</td>
-                        <td>{{product.price}}</td>
-                        <td>{{product.starRating}}</td>
+                        <td>{{ product.productName }}</td> <!--Interpolar Biding {{}}-->
+                        <td>{{ product.productCode | lowercase }}</td> <!-- | pipe para configurar formatação-->
+                        <td>{{ product.releaseDate }}</td>
+                        <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+                        <td>{{ product.starRating }}</td>
                     </tr>
                 </tbody>
             </table>
