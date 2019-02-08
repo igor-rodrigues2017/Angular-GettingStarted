@@ -6,7 +6,7 @@ import { IProduct } from "./product";
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve implementar  método ngOnInit(): void {}
     pageTitle: string = 'Product List'
     imageWidth: number = 50;
     imageMargin: number = 2;
