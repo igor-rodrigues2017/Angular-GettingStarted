@@ -46,6 +46,10 @@ export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve im
     constructor() {
         this.filteredProducts = this.products;
     }
+
+    onRatingClicked(message: string): void{
+        this.pageTitle = `Product List: ${message}`;
+    }
     
     toggleImage(): void{
         this.showImage = !this.showImage;

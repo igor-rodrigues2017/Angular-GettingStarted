@@ -45,7 +45,10 @@
                                                                                             pode haver mais de uma formatação. convertToSpaces é nosso custom-->
                         <td>{{ product.releaseDate }}</td>
                         <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
-                        <td>{{ product.starRating }}</td>
+                        <td><pm-star [rating]='product.starRating'
+                                (ratingClicked)='onRatingClicked($event)'></pm-star></td> 
+                                <!--nested component o binding[rating] passa a informação para o component pm-star
+                                o binding(ratingClicked) emite um evento que o conteiner escuta e chama o método que onRatingClicked($event) o event emite uma string-->
                     </tr>
                 </tbody>
             </table>
