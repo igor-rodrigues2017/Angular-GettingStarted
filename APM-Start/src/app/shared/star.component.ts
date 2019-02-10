@@ -8,7 +8,7 @@ import { Component, OnChanges, Input, EventEmitter, Output } from "@angular/core
 export class StarComponent implements OnChanges{
     @Input() rating: number; //@Input() recebe a informação do conteinner para o component
     starWidth: number; //calulado quando algo é alterado, lifecycle OnChanges
-    @Output() ratingClicked: EventEmitter<string> = //@Output manda para o conteiner um evento(apenas eventos podem ser emitidos)
+    @Output() ratingClicked: EventEmitter<string> = //@Output manda para o conteiner um evento(apenas EventEmmiter podem ser emitidos)
         new EventEmitter<string>();
 
     ngOnChanges(): void {
