@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve im
     imageWidth: number = 50;
     imageMargin: number = 2;
     showImage: boolean = false;
+    errorMessage: string;
 
     _listFilter: string;
     get listFilter(): string { //é chamado quando this.listFilter
@@ -39,8 +40,14 @@ export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve im
     }
     
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
-        this.filteredProducts = this.products;
+        // é preciso subscribe to an Observer para utilizar um service Http
+        this.productService.getProducts().subscribe( // Subscribing to an Observable subscribe(functionLidaComDado, finctionLidaComError)
+            products => {
+                this.products = products
+                this.filteredProducts = this.products;
+            },
+            error => this.errorMessage = <any>error
+        );
     }
 
     performFilter(filterBy: string): IProduct[] {
