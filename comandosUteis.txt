@@ -1,0 +1,4 @@
+comandos uteis Angular:
+instalar CLI: npm install -g @angular/cli
+instalar bootstrap: npm install bootstrap
+instalar font-awesome: npm install --save font-awesome angular-font-awesome

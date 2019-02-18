@@ -3,7 +3,6 @@ import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
 @Component({
-    selector: 'pm-products',
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.css']
 })
@@ -15,10 +14,10 @@ export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve im
     errorMessage: string;
 
     _listFilter: string;
-    get listFilter(): string { //é chamado quando this.listFilter
+    get listFilter(): string { //é chamado quando this.listFilter ngModel lá no html
         return this._listFilter;
     }
-    set listFilter(value: string) { //é chamado quando é alterada a variável this._listFilter
+    set listFilter(value: string) { //é chamado quando é alterada a variável this._listFilter ngModel lá no html
         this._listFilter = value;
         this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
     }

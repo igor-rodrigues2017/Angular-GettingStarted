@@ -1,0 +1,5 @@
+<div class="card" *ngIf="product"> <!--Garantindo que o product não é null poderia usar {{product?.productName}} ponto de ? para ser safe e evitar undefined-->
+  <div class="card-header">
+    {{pageTittle + ': ' + product.productName}}
+  </div>
+</div>
