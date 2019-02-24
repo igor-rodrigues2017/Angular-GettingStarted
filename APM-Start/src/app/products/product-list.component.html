@@ -40,7 +40,11 @@
                             [style.width.px]="imageWidth" [style.margin.px]="imageMargin"> <!--Binding propertie []-->
                             <!-- ou assim: <img src={{product.imageUrl}} title={{product.productName}}> --> 
                         </td>
-                        <td>{{ product.productName }}</td> <!--Interpolar Binding {{}}-->
+                        <td>
+                            <a [routerLink]="[ '/products', product.productId ]">
+                                {{ product.productName }}
+                            </a>
+                        </td> <!--Interpolar Binding {{}}-->
                         <td>{{ product.productCode | lowercase | convertToSpaces:'-'}}</td> <!-- | pipe para configurar formatação, 
                                                                                             pode haver mais de uma formatação. convertToSpaces é nosso custom-->
                         <td>{{ product.releaseDate }}</td>

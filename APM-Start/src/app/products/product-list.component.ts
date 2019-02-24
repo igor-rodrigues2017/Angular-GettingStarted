@@ -42,7 +42,7 @@ export class ProductListComponent implements OnInit{ //LifeCicle OnInit  deve im
         // é preciso subscribe to an Observer para utilizar um service Http
         this.productService.getProducts().subscribe( // Subscribing to an Observable subscribe(functionLidaComDado, finctionLidaComError)
             products => {
-                this.products = products
+                this.products = products;
                 this.filteredProducts = this.products;
             },
             error => this.errorMessage = <any>error
