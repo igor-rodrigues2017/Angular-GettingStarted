@@ -2,11 +2,15 @@
   <div class="card-header">
     {{pageTitle + ': ' + product.productName}}
   </div>
+  <img [src]="product.imageUrl" class="card-img-top img-center" [alt]="product.productName" [title]="product.productName">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Code: {{product.productCode | lowercase | convertToSpaces:'-'}}</li>
+    <li class="list-group-item">Price: {{product.price | currency:'USD':'symbol':'1.2-2' }}</li>
+    <li class="list-group-item">Rating: <pm-star [rating]="product.starRating"></pm-star></li>
+  </ul>
   <div class="card-footer">
-    <button class="btn btn-outline-secondary"
-            (click)="onBack()"
-            style="width:80px">
-            <i class="fa fa-chevron-left"></i>Back
-          </button>
+    <button class="btn btn-outline-secondary" (click)="onBack()" style="width:80px">
+      <i class="fa fa-chevron-left"></i>Back
+    </button>
   </div>
 </div>
