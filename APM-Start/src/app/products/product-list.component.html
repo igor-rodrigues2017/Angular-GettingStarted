@@ -41,7 +41,7 @@
                             <!-- ou assim: <img src={{product.imageUrl}} title={{product.productName}}> --> 
                         </td>
                         <td>
-                            <a [routerLink]="[ '/products', product.productId ]">
+                            <a [routerLink]="[ '/products', product.productId ]"> <!--Ativando a rota, o que vem como segundo parametro é products/id-->
                                 {{ product.productName }}
                             </a>
                         </td> <!--Interpolar Binding {{}}-->

@@ -10,7 +10,6 @@ import { ProductService } from './product.service';
 export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Product Detail'
   product: IProduct;
-  products: IProduct[];
   //route: necessário para pegar o parâmetro router: necessário para chamada de roteamento
   constructor(private route: ActivatedRoute, private productService: ProductService,
               private router: Router) { }
@@ -20,8 +19,7 @@ export class ProductDetailComponent implements OnInit {
     this.pageTitle += `: ${id}`; //concatenar a string com a existente ` `;
     this.productService.getProducts().subscribe(
       products => {
-        this.products = products;
-        this.products.forEach(p => {
+        products.forEach(p => {
           if(p.productId == id) {
             this.product = p;
           }

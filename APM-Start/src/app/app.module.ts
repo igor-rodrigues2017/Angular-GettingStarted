@@ -10,6 +10,7 @@ import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe'; //Custom 
 import { StarComponent } from './shared/star.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import { ProductDetailGuard } from './products/product-detail.guard';
 
 @NgModule({ //declara os do nosso projeto
   declarations: [
@@ -27,7 +28,9 @@ import { WelcomeComponent } from './home/welcome.component';
     RouterModule.forRoot([
       //a ordem aqui importa, será selecionada a primeira rota que for compatível
       { path: 'products', component: ProductListComponent }, // traduzindo: /products ativa o component ProductListComponent
-      { path: 'products/:id', component: ProductDetailComponent }, // aqui temos :id -> é um path variable
+      { path: 'products/:id', // aqui temos :id -> é um path variable
+        canActivate: [ ProductDetailGuard ], // Um guard nessa rota
+        component: ProductDetailComponent }, 
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full'}, // rota default redireciona para welcome ^ 
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'} // caso não corresponda nenhuma rota: coringa -> vai redirecionar para a página de welcome, mais comum seria um 404
