@@ -3,3 +3,5 @@ instalar CLI: npm install -g @angular/cli
 instalar bootstrap: npm install bootstrap
 instalar font-awesome: npm install --save font-awesome angular-font-awesome
 criar guard: ng g g folder -> ng=cli g=generate g=guard folder=pasta de destino
+criando angular module: ng g m folder -> ng:CLI g:Generate m:Module folder:Caminho
+criando angular module sem criar pasta e fazendo import no app.module: ng g m caminho --flat -m app
