@@ -1,34 +1,34 @@
-import { Injectable } from "@angular/core";
-import { IProduct } from "./product";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Observable, throwError } from "rxjs";
-import { catchError, tap } from 'rxjs/operators'
-@Injectable({ //anotação para poder ser injetado
-    providedIn: 'root' //pode der injetado por qualquer component
+import { Injectable } from '@angular/core';
+import { IProduct } from './product';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+@Injectable({ // anotação para poder ser injetado
+    providedIn: 'root' // pode der injetado por qualquer component
 })
 export class ProductService {
     private productUrl = 'api/products/products.json';
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
-    getProducts(): Observable<IProduct[]> { //retorna um observable
-        //generic para mapear o retorno para(muito FODA!)
-        return this.http.get<IProduct[]>(this.productUrl).pipe( //pipe para utilizar operators
+    getProducts(): Observable<IProduct[]> { // retorna um observable
+        // generic para mapear o retorno para(muito FODA!)
+        return this.http.get<IProduct[]>(this.productUrl).pipe( // pipe para utilizar operators
             tap(data => console.log('All: ' + JSON.stringify(data))),
             catchError(this.handleError) // lidando com erros
-        ); 
+        );
     }
 
     private handleError(err: HttpErrorResponse) {
-        //in a real world app, we may send the server to some remote logging infrastructure
+        // in a real world app, we may send the server to some remote logging infrastructure
         // instead of just logging it to the console
         let errorMessage = '';
         if (err.error instanceof ErrorEvent) {
-            //A client-side or network error occurred. Handle it accordingly.
+            // A client-side or network error occurred. Handle it accordingly.
             errorMessage = `An error occurred: ${err.error.message}`;
         } else {
-            //The backend returned an insuccessful response code.
-            //The response body may contain clues as to what went wrong,
+            // The backend returned an insuccessful response code.
+            // The response body may contain clues as to what went wrong,
             errorMessage = `Server returned code: ${err.status}, error massage is: ${err.message}`;
         }
         console.log(errorMessage);

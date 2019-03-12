@@ -12,8 +12,8 @@ import { ConvertToSpacesPipe } from './convert-to-spaces.pipe';
   imports: [
     CommonModule
   ],
-  exports: [ //export para o módulo que importar esse module, assim não é necessário reimport dentro dos outros modules
-    StarComponent, 
+  exports: [ // export para o módulo que importar esse module, assim não é necessário reimport dentro dos outros modules
+    StarComponent,
     CommonModule,
     FormsModule,
     ConvertToSpacesPipe

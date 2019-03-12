@@ -11,8 +11,8 @@ import { SharedModule } from '../shared/shared.module';
     ProductDetailComponent,
   ],
   imports: [
-    RouterModule.forChild([ //forChild é utilizado para não registrar novamente o service de roteamento
-      //a ordem aqui importa, será selecionada a primeira rota que for compatível
+    RouterModule.forChild([ // forChild é utilizado para não registrar novamente o service de roteamento
+      // a ordem aqui importa, será selecionada a primeira rota que for compatível
       { path: 'products', component: ProductListComponent }, // traduzindo: /products ativa o component ProductListComponent
       { path: 'products/:id', // aqui temos :id -> é um path variable
         canActivate: [ ProductDetailGuard ], // Um guard nessa rota

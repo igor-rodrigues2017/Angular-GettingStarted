@@ -1,8 +1,8 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'pm-root',
-  template:`
+  template: `
     <nav class='navbar navbar-expand navbar-light bg-light'>
       <a class='navbar-brand'> {{pageTitle}} </a>
       <ul class='nav nav-pills'>
@@ -19,5 +19,5 @@ import { Component } from "@angular/core";
 })
 
 export class AppComponent {
-  pageTitle: string = 'Acme Product Management';
+  pageTitle = 'Acme Product Management';
 }
