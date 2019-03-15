@@ -11,3 +11,11 @@ bower_components
 bin
 obj
 packages
+.idea/Angular-GettingStarted.iml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/inspectionProfiles/Project_Default.xml
+.gitignore

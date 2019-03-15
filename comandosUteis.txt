@@ -6,3 +6,9 @@ criar guard: ng g g folder -> ng=cli g=generate g=guard folder=pasta de destino
 criando angular module: ng g m folder -> ng:CLI g:Generate m:Module folder:Caminho
 criando angular module sem criar pasta e fazendo import no app.module: ng g m caminho --flat -m app
 criar um novo projeto: ng new nomeDoProjeto
+ng new name -> cria novo projeto
+ng serve -> inicia aplicação
+ng generate -> cria coisas, atalhos 'ng g'
+ng test -> testa app
+ng build -> build do projeto
+ng --help -> mostra os comandos
